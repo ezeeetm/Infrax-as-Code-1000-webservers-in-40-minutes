@@ -1,0 +1,17 @@
+,
+"dnsRecordSet": {
+  "Type": "AWS::Route53::RecordSet",
+  "Properties": {
+    "HostedZoneName": "trycatchfinally.fail.",
+    "Name": "test612.trycatchfinally.fail.",
+    "Type": "CNAME",
+    "TTL": "5",
+    "SetIdentifier": {
+      "Ref": "AWS::Region"
+    },
+    "Weight": 1,
+    "ResourceRecords": [{
+      "Fn::GetAtt": ["elasticLoadBalancer", "DNSName"]
+    }]
+  }
+}

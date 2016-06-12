@@ -1,0 +1,19 @@
+- in your DEFAULT VPC, spin up an Ubuntu Server 14.04 in public subnet with public IP, open 80/8080 to world 22 to your IP.
+- ssh in and:
+
+
+https://www.rosehosting.com/blog/install-jenkins-on-an-ubuntu-14-04-vps/
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install openjdk-7-jdk
+sudo wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
+sudo apt-get install git
+sudo apt-get install python-pip
+sudo pip install boto3
+
+then
+https://learning-continuous-deployment.github.io/jenkins/github/2015/04/17/github-jenkins/

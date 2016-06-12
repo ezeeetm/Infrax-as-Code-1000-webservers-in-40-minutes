@@ -1,0 +1,66 @@
+create 'app' keypair in any region, and import into all other regions (cat ~/.ssh/authorized_keys on any ubuntu box spun up with your keypair)
+ddb Table 'app' w region and hits values (in us-east-1) fields are below, single row (first column scope = 'all')
+s3 bucket with bkg image (update index.html with url of bkg image).  bucket policy is below
+request service limit increase for t2.micros.  Reference this presentation.
+
+update nat and app host ami Mappings in app.json, if necessary:
+nat: amzn-ami-vpc-nat-hvm-2016.03.2.x86_64-ebs (search in community amis)
+app: Ubuntu Server 14.04 LTS (HVM), SSD Volume Type (on main quicklaunch instance dashboard)
+
+s3 bucket policy
+{
+  "Version": "2008-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowPublicRead",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::app-uaa/*"
+      ]
+    }
+  ]
+}
+
+
+# to kill python process
+ps -ef | grep python
+
+
+US East (N. Virginia)	us-east-1
+US West (N. California)	us-west-1
+US West (Oregon)	us-west-2
+EU (Ireland)	eu-west-1
+EU (Frankfurt)	eu-central-1
+Asia Pacific (Tokyo)	ap-northeast-1
+Asia Pacific (Seoul)	ap-northeast-2
+Asia Pacific (Singapore)	ap-southeast-1
+Asia Pacific (Sydney)	ap-southeast-2
+South America (São Paulo)	sa-east-1
+
+useast1requestCount
+uswest1requestCount
+uswest2requestCount
+euwest1requestCount
+eucentral1requestCount
+apnortheast1requestCount
+apnortheast2requestCount
+apsoutheast1requestCount
+apsoutheast2requestCount
+saeast1requestCount
+
+useast1serverCount
+uswest1serverCount
+uswest2serverCount
+euwest1serverCount
+eucentral1serverCount
+apnortheast1serverCount
+apnortheast2serverCount
+apsoutheast1serverCount
+apsoutheast2serverCount
+saeast1serverCount

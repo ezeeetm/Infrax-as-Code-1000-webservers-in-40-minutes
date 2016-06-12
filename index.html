@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AWS Global Infrastructure</title>
+    <style>
+        .aws {
+            font-size: 35px;
+            font-family: 'Lucida Console', 'Lucida Sans Typewriter', monaco, 'Bitstream Vera Sans Mono', monospace;
+            color: #044B7F;
+            font-weight: normal;
+            background: url(https://s3.amazonaws.com/app-uaa/aws.png) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .oregon {
+            position: absolute;
+            top: 28%;
+            left: 4%;
+        }
+        .ncalifornia {
+            position: absolute;
+            top: 45%;
+            left: 4%;
+        }
+        .nvirgina {
+            position: absolute;
+            top: 48%;
+            left: 33%;
+        }
+        .saopaulo {
+            position: absolute;
+            top: 86%;
+            left: 38%;
+        }
+        .ireland {
+            position: absolute;
+            top: 18%;
+            left: 39%;
+        }
+        .frankfurt {
+            position: absolute;
+            top: 31%;
+            left: 53%;
+        }
+        .singapore {
+            position: absolute;
+            top: 69%;
+            left: 66%;
+        }
+        .seoul {
+            position: absolute;
+            top: 25%;
+            left: 87%;
+        }
+        .tokyo {
+            position: absolute;
+            top: 47%;
+            left: 87%;
+        }
+        .sydney {
+            position: absolute;
+            top: 93%;
+            left: 76%;
+        }
+        .beacon {
+            position: absolute;
+            height: 2em;
+            width: 2em;
+            left: beaconLeft;
+            top: beaconTop;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px 10px #044B7F;
+            -webkit-animation: active 1.5s infinite linear;
+            animation: active 1.5s infinite linear;
+        }
+        @-webkit-keyframes active {
+            0% {
+                -webkit-transform: scale(.1);
+                opacity: 1;
+            }
+            70% {
+                -webkit-transform: scale(1.5);
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes active {
+            0% {
+                transform: scale(.1);
+                opacity: 1;
+            }
+            70% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        .summary {
+			background: rgba(204, 204, 204, 0.5);
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+        }
+    </style>
+</head>
+
+<body class="aws">
+    <div class="beacon"></div>
+    <div class="oregon">uswest2requestCount - uswest2serverCount</div>
+    <div class="ncalifornia">uswest1requestCount - uswest1serverCount</div>
+    <div class="nvirgina">useast1requestCount - useast1serverCount</div>
+    <div class="saopaulo">saeast1requestCount - saeast1serverCount</div>
+    <div class="ireland">euwest1requestCount - euwest1serverCount</div>
+    <div class="frankfurt">eucentral1requestCount - eucentral1serverCount</div>
+    <div class="singapore">apsoutheast1requestCount - apsoutheast1serverCount</div>
+    <div class="seoul">apnortheast2requestCount - apnortheast2serverCount</div>
+    <div class="tokyo">apnortheast1requestCount - apnortheast1serverCount</div>
+    <div class="sydney">apsoutheast2requestCount - apsoutheast2serverCount</div>
+    <div class="summary">GLOBAL TOTAL:<br />REQUESTS: totalRequests<br />SERVERS: totalServers</div>
+</body>
+
+</html>
