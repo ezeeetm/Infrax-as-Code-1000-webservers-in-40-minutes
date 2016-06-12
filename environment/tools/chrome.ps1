@@ -4,5 +4,6 @@ $resp = Resolve-DnsName -Name test612.trycatchfinally.fail -Server ns-279.awsdns
 $cname = $resp | where {$_.Type -eq 'CNAME'}
 $cname.NameHost
 #Start-Process chrome.exe -ArgumentList @( '-incognito', $cname.NameHost )
+Invoke-WebRequest $cname.NameHost
 #sleep -Seconds 1
 }
