@@ -57,7 +57,8 @@ def mungeHtml ( jsonData, rawHtml, beaconMap ):
 			totalServers += int(jsonData['Attributes'][key])
 	beaconTop = beaconMap[region]['top']
 	beaconLeft = beaconMap[region]['left']
-	rawHtml = rawHtml.replace('beaconTop',beaconTop).replace('beaconLeft',beaconLeft).replace('totalRequests',str(totalRequests)).replace('totalServers',str(totalServers))
+    beaconColor = beaconMap[region]['color']
+	rawHtml = rawHtml.replace('beaconTop',beaconTop).replace('beaconLeft',beaconLeft).replace('beaconColor',beaconColor).replace('totalRequests',str(totalRequests)).replace('totalServers',str(totalServers))
 	rawHtml
 	return rawHtml
 
@@ -84,16 +85,16 @@ incrementServerCount ( region )
 
 # beacon CSS mapping
 beaconMap = {
-	'us-east-1': {'top': '30%', 'left': '30%'},
-	'us-west-1': {'top': '20%', 'left': '20%'},
-	'us-west-2': {'top': '20%', 'left': '20%'},
-	'eu-west-1': {'top': '30%', 'left': '30%'},
-	'eu-central-1': {'top': '30%', 'left': '30%'},
-	'ap-northeast-1': {'top': '30%', 'left': '30%'},
-	'ap-northeast-2': {'top': '27%', 'left': '89%'},
-	'ap-southeast-1': {'top': '30%', 'left': '30%'},
-	'ap-southeast-2': {'top': '30%', 'left': '30%'},
-	'sa-east-1': {'top': '30%', 'left': '30%'}
+	'us-east-1': {'top': '33%', 'left': '27.5%', 'color': '610345'},
+	'us-west-1': {'top': '35%', 'left': '15.5%', 'color': '95190C'},
+	'us-west-2': {'top': '29.5%', 'left': '15%', 'color': 'E3B505'},
+	'eu-west-1': {'top': '22%', 'left': '44.5%', 'color': '044B7F'},
+	'eu-central-1': {'top': '25.5%', 'left': '48.5%', 'color': 'E3B505'},
+	'ap-northeast-1': {'top': '36%', 'left': '84%', 'color': '107E7D'},
+	'ap-northeast-2': {'top': '33%', 'left': '79.5%', 'color': '610345'},
+	'ap-southeast-1': {'top': '56%', 'left': '74%', 'color': '95190C'},
+	'ap-southeast-2': {'top': '77%', 'left': '86%', 'color': '044B7F'},
+	'sa-east-1': {'top': '71.25%', 'left': '33.25%', 'color': '107E7D'}
 }
 
 # reads in ./app.html to return
