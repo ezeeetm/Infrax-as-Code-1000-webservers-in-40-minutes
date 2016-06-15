@@ -458,5 +458,22 @@
 				"UserData": "IyEvYmluL2Jhc2gNCiMgdXBkYXRlIHBhY2thZ2UgbGlzdHMgYW5kIGdldCBkZXBlbmRlbmNpZXMNCmFwdC1nZXQgdXBkYXRlDQphcHQtZ2V0IGluc3RhbGwgLXkgbmdpbnggdXdzZ2kgdXdzZ2ktcGx1Z2luLXB5dGhvbiBweXRob24tcGlwIGdpdA0KcGlwIGluc3RhbGwgdmlydHVhbGVudg0KDQojIGdyYWIgb3VyIGNvZGUNCmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vZXplZWV0bS9JbmZyYXgtYXMtQ29kZS0xMDAwLXdlYnNlcnZlcnMtaW4tNDAtbWludXRlcy5naXQNCg0KIyBzZXQgdXAgZmlsZXN5c3RlbSBhbmQgdmlydHVhbGVudg0KbWtkaXIgLXAgL3Zhci93d3cvbXlhcHANCnZpcnR1YWxlbnYgL3Zhci93d3cvbXlhcHAvZW52DQpzb3VyY2UgL3Zhci93d3cvbXlhcHAvZW52L2Jpbi9hY3RpdmF0ZQ0KcGlwIGluc3RhbGwgYm90dGxlIGJvdG8zIHJlcXVlc3RzDQpkZWFjdGl2YXRlDQpjaG93biAtUiB3d3ctZGF0YTp3d3ctZGF0YSAvdmFyL3d3dy9teWFwcA0KDQojIGNvcHkgZmlsZXMgZnJvbSBsb2NhbCBnaXQgcmVwbyBvdXQgdG8gd2hlcmUgdGhleSBiZWxvbmcgb24gdGhlIGZpbGVzeXN0ZW0NCmNwIC1mIC9JbmZyYXgtYXMtQ29kZS0xMDAwLXdlYnNlcnZlcnMtaW4tNDAtbWludXRlcy9lbnZpcm9ubWVudC9kZWZhdWx0IC9ldGMvbmdpbngvc2l0ZXMtZW5hYmxlZC9kZWZhdWx0DQpjcCAtZiAvSW5mcmF4LWFzLUNvZGUtMTAwMC13ZWJzZXJ2ZXJzLWluLTQwLW1pbnV0ZXMvZW52aXJvbm1lbnQvdXdzZ2kuaW5pIC9ldGMvdXdzZ2kvYXBwcy1lbmFibGVkL3V3c2dpLmluaQ0KY3AgLWYgL0luZnJheC1hcy1Db2RlLTEwMDAtd2Vic2VydmVycy1pbi00MC1taW51dGVzL2luZGV4LnB5IC92YXIvd3d3L215YXBwL2luZGV4LnB5DQpjcCAtZiAvSW5mcmF4LWFzLUNvZGUtMTAwMC13ZWJzZXJ2ZXJzLWluLTQwLW1pbnV0ZXMvaW5kZXguaHRtbCAvdmFyL3d3dy9teWFwcC9pbmRleC5odG1sDQoNCiMgcmVzdGFydCBzZXJ2aWNlcyB0byBsb2FkIG5ldyBjb25maWdzIGFuZCBlbmdhZ2UgdXdzZ2kgdG8gb3VyIGFwcA0Kc2VydmljZSBuZ2lueCByZXN0YXJ0DQpzZXJ2aWNlIHV3c2dpIHJlc3RhcnQ="
 			}
 		}
+		,
+		"dnsRecordSet": {
+		  "Type": "AWS::Route53::RecordSet",
+		  "Properties": {
+		    "HostedZoneName": "trycatchfinally.fail.",
+		    "Name": "test612.trycatchfinally.fail.",
+		    "Type": "CNAME",
+		    "TTL": "5",
+		    "SetIdentifier": {
+		      "Ref": "AWS::Region"
+		    },
+		    "Weight": 1,
+		    "ResourceRecords": [{
+		      "Fn::GetAtt": ["elasticLoadBalancer", "DNSName"]
+		    }]
+		  }
+		}
 	}
 }
