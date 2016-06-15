@@ -55,20 +55,20 @@ def mungeHtml ( jsonData, rawHtml, beaconMap ):
 			totalRequests += int(jsonData['Attributes'][key])
 		if 'serverCount' in key:
 			totalServers += int(jsonData['Attributes'][key])
-    beaconTop = beaconMap[region]['top']
-    beaconLeft = beaconMap[region]['left']
-    beaconColor = beaconMap[region]['color']
-    rawHtml = rawHtml.replace('beaconTop',beaconTop).replace('beaconLeft',beaconLeft).replace('beaconColor',beaconColor).replace('totalRequests',str(totalRequests)).replace('totalServers',str(totalServers))
+	beaconTop = beaconMap[region]['top']
+	beaconLeft = beaconMap[region]['left']
+	beaconColor = beaconMap[region]['color']
+	rawHtml = rawHtml.replace('beaconTop',beaconTop).replace('beaconLeft',beaconLeft).replace('beaconColor',beaconColor).replace('totalRequests',str(totalRequests)).replace('totalServers',str(totalServers))
 	return rawHtml
 
 @route('/')
 def index():
-    state = updateState ( region )
-    strData = (json.dumps(state, indent=4, cls=DecimalEncoder))
-    jsonData = json.loads(strData.replace(' ','').replace('\n',''))
-    jsonData['region'] = region
-    html =  mungeHtml ( jsonData, rawHtml, beaconMap )
-    return html
+	state = updateState ( region )
+	strData = (json.dumps(state, indent=4, cls=DecimalEncoder))
+	jsonData = json.loads(strData.replace(' ','').replace('\n',''))
+	jsonData['region'] = region
+	html =  mungeHtml ( jsonData, rawHtml, beaconMap )
+	return html
 
 
 # dynamo setup, do this at app start only, not for each request
