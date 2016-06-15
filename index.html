@@ -3,32 +3,42 @@
 
 <head>
     <title>AWS Global Infrastructure</title>
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+
     <style>
-        .aws {
-            font-size: 35px;
+        body {
+            font-size: 36px;
             font-family: 'Lucida Console', 'Lucida Sans Typewriter', monaco, 'Bitstream Vera Sans Mono', monospace;
             color: #044B7F;
             font-weight: normal;
-            background: url(https://s3.amazonaws.com/app-uaa/aws.png) no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+        }
+
+
+        .background
+        {
+            position: relative;
+            width: auto;
+            margin: auto;
+        }
+        .background > img
+        {
+            width: auto;
         }
         .oregon {
             position: absolute;
             top: 28%;
-            left: 4%;
+            left: 4.5%;
         }
         .ncalifornia {
             position: absolute;
-            top: 45%;
-            left: 4%;
+            top: 43%;
+            left: 4.5%;
         }
         .nvirgina {
             position: absolute;
-            top: 48%;
-            left: 33%;
+            top: 46%;
+            left: 32%;
         }
         .saopaulo {
             position: absolute;
@@ -106,25 +116,44 @@
         .summary {
 			background: rgba(204, 204, 204, 0.5);
             position: absolute;
-            bottom: 0%;
-            left: 0%;
+            bottom: 10px;
+            left: 10px;
         }
     </style>
+
+    <script>
+        $(document).ready(function(){
+            $(window).on('resize', function(){
+                var height = $(window).height() - 20;
+                var scale = height/675;
+                var imageWidth = scale * 1273;
+                var fontSize = (imageWidth*.020) + "px";
+                $('body').css('font-size', fontSize);
+                $('.background>img, .background').width(imageWidth + 'px');
+                $('.background>img, .background').height(height + 'px');
+                $('.background').height(height + 'px');
+            });
+            $(window).trigger('resize');
+        });
+    </script>
 </head>
 
-<body class="aws">
-    <div class="beacon"></div>
-    <div class="oregon">uswest2requestCount - uswest2serverCount</div>
-    <div class="ncalifornia">uswest1requestCount - uswest1serverCount</div>
-    <div class="nvirgina">useast1requestCount - useast1serverCount</div>
-    <div class="saopaulo">saeast1requestCount - saeast1serverCount</div>
-    <div class="ireland">euwest1requestCount - euwest1serverCount</div>
-    <div class="frankfurt">eucentral1requestCount - eucentral1serverCount</div>
-    <div class="singapore">apsoutheast1requestCount - apsoutheast1serverCount</div>
-    <div class="seoul">apnortheast2requestCount - apnortheast2serverCount</div>
-    <div class="tokyo">apnortheast1requestCount - apnortheast1serverCount</div>
-    <div class="sydney">apsoutheast2requestCount - apsoutheast2serverCount</div>
-    <div class="summary">GLOBAL TOTAL:<br />REQUESTS: totalRequests<br />SERVERS: totalServers</div>
+<body>
+    <div class="background">
+        <img src="https://s3.amazonaws.com/app-uaa/aws.png" />
+        <div class="beacon"></div>
+        <div class="oregon">uswest2requestCount - uswest2serverCount</div>
+        <div class="ncalifornia">uswest1requestCount - uswest1serverCount</div>
+        <div class="nvirgina">useast1requestCount - useast1serverCount</div>
+        <div class="saopaulo">saeast1requestCount - saeast1serverCount</div>
+        <div class="ireland">euwest1requestCount - euwest1serverCount</div>
+        <div class="frankfurt">eucentral1requestCount - eucentral1serverCount</div>
+        <div class="singapore">apsoutheast1requestCount - apsoutheast1serverCount</div>
+        <div class="seoul">apnortheast2requestCount - apnortheast2serverCount</div>
+        <div class="tokyo">apnortheast1requestCount - apnortheast1serverCount</div>
+        <div class="sydney">apsoutheast2requestCount - apsoutheast2serverCount</div>
+        <div class="summary">GLOBAL TOTAL:<br />REQUESTS: totalRequests<br />SERVERS: totalServers</div>
+    </div>
 </body>
 
 </html>
