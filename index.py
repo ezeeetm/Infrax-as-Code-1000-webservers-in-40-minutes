@@ -55,10 +55,10 @@ def mungeHtml ( jsonData, rawHtml, beaconMap ):
 			totalRequests += int(jsonData['Attributes'][key])
 		if 'serverCount' in key:
 			totalServers += int(jsonData['Attributes'][key])
-	beaconTop = beaconMap[region]['top']
-	beaconLeft = beaconMap[region]['left']
-    beaconColor = beaconMap[region]['color']
-    rawHtml = rawHtml.replace('beaconTop',beaconTop).replace('beaconLeft',beaconLeft).replace('beaconColor',beaconColor).replace('totalRequests',str(totalRequests)).replace('totalServers',str(totalServers))
+    	beaconTop = beaconMap[region]['top']
+    	beaconLeft = beaconMap[region]['left']
+    	beaconColor = beaconMap[region]['color']
+    	rawHtml = rawHtml.replace('beaconTop',beaconTop).replace('beaconLeft',beaconLeft).replace('beaconColor',beaconColor).replace('totalRequests',str(totalRequests)).replace('totalServers',str(totalServers))
 	rawHtml
 	return rawHtml
 
