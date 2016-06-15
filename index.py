@@ -59,7 +59,6 @@ def mungeHtml ( jsonData, rawHtml, beaconMap ):
     	beaconLeft = beaconMap[region]['left']
     	beaconColor = beaconMap[region]['color']
     	rawHtml = rawHtml.replace('beaconTop',beaconTop).replace('beaconLeft',beaconLeft).replace('beaconColor',beaconColor).replace('totalRequests',str(totalRequests)).replace('totalServers',str(totalServers))
-	rawHtml
 	return rawHtml
 
 @route('/')
