@@ -52,6 +52,11 @@
 				"app": "ami-0fb83963",
 				"nat": "ami-e257dc8e",
 				"natType": "t2.nano"
+			},
+			"ap-south-1": {
+				"app": "ami-ac5238c3",
+				"nat": "ami-d3b6dcbc",
+				"natType": "t2.nano"
 			}
 		}
 	},
