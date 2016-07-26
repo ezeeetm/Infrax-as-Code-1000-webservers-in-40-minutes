@@ -51,7 +51,7 @@
 	},
 	"ap-south-1": {
 		"friendlyName": "Mumbai",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	}
 }
