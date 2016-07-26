@@ -333,11 +333,6 @@
 					"LoadBalancerPort": "80",
 					"Protocol": "HTTP",
 					"InstanceProtocol": "HTTP"
-				}, {
-					"InstancePort": "22",
-					"LoadBalancerPort": "22",
-					"Protocol": "TCP",
-					"InstanceProtocol": "TCP"
 				}],
 				"HealthCheck": {
 					"Target": "TCP:22",
