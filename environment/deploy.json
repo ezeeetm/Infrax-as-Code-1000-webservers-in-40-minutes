@@ -48,5 +48,10 @@
 		"friendlyName": "São Paulo",
 		"enabled": false,
 		"stack": "app"
+	},
+	"ap-south-1": {
+		"friendlyName": "Mumbai",
+		"enabled": true,
+		"stack": "app"
 	}
 }
