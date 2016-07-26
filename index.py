@@ -93,7 +93,8 @@ beaconMap = {
 	'ap-northeast-2': {'top': '33%', 'left': '79.5%', 'color': '610345'},
 	'ap-southeast-1': {'top': '56%', 'left': '74%', 'color': '95190C'},
 	'ap-southeast-2': {'top': '77%', 'left': '86%', 'color': '044B7F'},
-	'sa-east-1': {'top': '71.25%', 'left': '33.25%', 'color': '107E7D'}
+	'sa-east-1': {'top': '71.25%', 'left': '33.25%', 'color': '107E7D'},
+	'ap-south-1': {'top': '90%', 'left': '90%', 'color': '107E7D'}
 }
 
 # reads in ./app.html to return
