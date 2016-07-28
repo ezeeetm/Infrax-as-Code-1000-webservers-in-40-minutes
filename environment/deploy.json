@@ -1,12 +1,12 @@
 {
 	"us-east-1": {
 		"friendlyName": "N. Virginia",
-		"enabled": true,
+		"enabled": false,
 		"stack": "app"
 	},
 	"us-west-1": {
 		"friendlyName": "N. California",
-		"enabled": true,
+		"enabled": false,
 		"stack": "app"
 	},
 	"us-west-2": {
