@@ -477,8 +477,8 @@
 				"LaunchConfigurationName": {
 					"Ref": "launchConfiguration"
 				},
-				"MinSize": "1",
-				"MaxSize": "1",
+				"MinSize": "0",
+				"MaxSize": "0",
 				"LoadBalancerNames": [
 					{
 						"Ref": "elasticLoadBalancer"
@@ -525,7 +525,7 @@
 			"Type": "AWS::Route53::RecordSet",
 			"Properties": {
 				"HostedZoneName": "trycatchfinally.fail.",
-				"Name": "test728.trycatchfinally.fail.",
+				"Name": "test7281.trycatchfinally.fail.",
 				"Type": "CNAME",
 				"TTL": "5",
 				"SetIdentifier": {
