@@ -67,10 +67,12 @@
 				"CidrBlock": "10.0.0.0/16",
 				"EnableDnsSupport": "true",
 				"EnableDnsHostnames": "true",
-				"Tags": [{
-					"Key": "Name",
-					"Value": "app"
-				}]
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "app"
+					}
+				]
 			}
 		},
 		"publicSubnet0": {
@@ -82,17 +84,20 @@
 				"CidrBlock": "10.0.0.0/24",
 				"AvailabilityZone": {
 					"Fn::Select": [
-						"0", {
+						"0",
+						{
 							"Fn::GetAZs": {
 								"Ref": "AWS::Region"
 							}
 						}
 					]
 				},
-				"Tags": [{
-					"Key": "Name",
-					"Value": "publicSubnet0"
-				}]
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "publicSubnet0"
+					}
+				]
 			}
 		},
 		"publicSubnet1": {
@@ -104,17 +109,20 @@
 				"CidrBlock": "10.0.1.0/24",
 				"AvailabilityZone": {
 					"Fn::Select": [
-						"1", {
+						"1",
+						{
 							"Fn::GetAZs": {
 								"Ref": "AWS::Region"
 							}
 						}
 					]
 				},
-				"Tags": [{
-					"Key": "Name",
-					"Value": "publicSubnet1"
-				}]
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "publicSubnet1"
+					}
+				]
 			}
 		},
 		"privateSubnet0": {
@@ -126,17 +134,20 @@
 				"CidrBlock": "10.0.3.0/24",
 				"AvailabilityZone": {
 					"Fn::Select": [
-						"0", {
+						"0",
+						{
 							"Fn::GetAZs": {
 								"Ref": "AWS::Region"
 							}
 						}
 					]
 				},
-				"Tags": [{
-					"Key": "Name",
-					"Value": "privateSubnet0"
-				}]
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "privateSubnet0"
+					}
+				]
 			}
 		},
 		"privateSubnet1": {
@@ -148,26 +159,31 @@
 				"CidrBlock": "10.0.4.0/24",
 				"AvailabilityZone": {
 					"Fn::Select": [
-						"1", {
+						"1",
+						{
 							"Fn::GetAZs": {
 								"Ref": "AWS::Region"
 							}
 						}
 					]
 				},
-				"Tags": [{
-					"Key": "Name",
-					"Value": "privateSubnet1"
-				}]
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "privateSubnet1"
+					}
+				]
 			}
 		},
 		"InternetGateway": {
 			"Type": "AWS::EC2::InternetGateway",
 			"Properties": {
-				"Tags": [{
-					"Key": "Name",
-					"Value": "app"
-				}]
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "app"
+					}
+				]
 			}
 		},
 		"VPCGatewayAttachment": {
@@ -185,13 +201,16 @@
 		"natInstance": {
 			"Type": "AWS::EC2::Instance",
 			"Properties": {
-				"Tags": [{
-					"Key": "Name",
-					"Value": "natInstance"
-				}],
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "natInstance"
+					}
+				],
 				"ImageId": {
 					"Fn::FindInMap": [
-						"RegionMap", {
+						"RegionMap",
+						{
 							"Ref": "AWS::Region"
 						},
 						"nat"
@@ -199,7 +218,8 @@
 				},
 				"InstanceType": {
 					"Fn::FindInMap": [
-						"RegionMap", {
+						"RegionMap",
+						{
 							"Ref": "AWS::Region"
 						},
 						"natType"
@@ -207,14 +227,16 @@
 				},
 				"KeyName": "app",
 				"SourceDestCheck": "false",
-				"NetworkInterfaces": [{
-					"AssociatePublicIpAddress": "true",
-					"DeviceIndex": "0",
-					"DeleteOnTermination": "true",
-					"SubnetId": {
-						"Ref": "publicSubnet0"
+				"NetworkInterfaces": [
+					{
+						"AssociatePublicIpAddress": "true",
+						"DeviceIndex": "0",
+						"DeleteOnTermination": "true",
+						"SubnetId": {
+							"Ref": "publicSubnet0"
+						}
 					}
-				}]
+				]
 			}
 		},
 		"publicRouteTable": {
@@ -223,10 +245,12 @@
 				"VpcId": {
 					"Ref": "VPC"
 				},
-				"Tags": [{
-					"Key": "Name",
-					"Value": "appPublic"
-				}]
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "appPublic"
+					}
+				]
 			}
 		},
 		"publicRoute": {
@@ -270,10 +294,12 @@
 				"VpcId": {
 					"Ref": "VPC"
 				},
-				"Tags": [{
-					"Key": "Name",
-					"Value": "appPrivate"
-				}]
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "appPrivate"
+					}
+				]
 			}
 		},
 		"privateRoute": {
@@ -313,27 +339,38 @@
 		"elasticLoadBalancer": {
 			"Type": "AWS::ElasticLoadBalancing::LoadBalancer",
 			"Properties": {
-				"Subnets": [{
-					"Ref": "publicSubnet0"
-				}, {
-					"Ref": "publicSubnet1"
-				}],
+				"Subnets": [
+					{
+						"Ref": "publicSubnet0"
+					},
+					{
+						"Ref": "publicSubnet1"
+					}
+				],
 				"ConnectionSettings": {
 					"IdleTimeout": "600"
 				},
 				"CrossZone": "true",
-				"SecurityGroups": [{
-					"Fn::GetAtt": ["VPC", "DefaultSecurityGroup"]
-				}, {
-					"Ref": "elbSecurityGroup"
-				}],
+				"SecurityGroups": [
+					{
+						"Fn::GetAtt": [
+							"VPC",
+							"DefaultSecurityGroup"
+						]
+					},
+					{
+						"Ref": "elbSecurityGroup"
+					}
+				],
 				"LoadBalancerName": "app",
-				"Listeners": [{
-					"InstancePort": "80",
-					"LoadBalancerPort": "80",
-					"Protocol": "HTTP",
-					"InstanceProtocol": "HTTP"
-				}],
+				"Listeners": [
+					{
+						"InstancePort": "80",
+						"LoadBalancerPort": "80",
+						"Protocol": "HTTP",
+						"InstanceProtocol": "HTTP"
+					}
+				],
 				"HealthCheck": {
 					"Target": "TCP:22",
 					"HealthyThreshold": "2",
@@ -350,21 +387,26 @@
 				"VpcId": {
 					"Ref": "VPC"
 				},
-				"Tags": [{
-					"Key": "Name",
-					"Value": "app"
-				}],
-				"SecurityGroupIngress": [{
-					"IpProtocol": "tcp",
-					"FromPort": "80",
-					"ToPort": "80",
-					"CidrIp": "0.0.0.0/0"
-				}, {
-					"IpProtocol": "tcp",
-					"FromPort": "22",
-					"ToPort": "22",
-					"CidrIp": "0.0.0.0/0"
-				}]
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "app"
+					}
+				],
+				"SecurityGroupIngress": [
+					{
+						"IpProtocol": "tcp",
+						"FromPort": "80",
+						"ToPort": "80",
+						"CidrIp": "0.0.0.0/0"
+					},
+					{
+						"IpProtocol": "tcp",
+						"FromPort": "22",
+						"ToPort": "22",
+						"CidrIp": "0.0.0.0/0"
+					}
+				]
 			}
 		},
 		"appRole": {
@@ -372,31 +414,37 @@
 			"Properties": {
 				"AssumeRolePolicyDocument": {
 					"Version": "2012-10-17",
-					"Statement": [{
-						"Effect": "Allow",
-						"Principal": {
-							"Service": [
-								"ec2.amazonaws.com"
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Principal": {
+								"Service": [
+									"ec2.amazonaws.com"
+								]
+							},
+							"Action": [
+								"sts:AssumeRole"
 							]
-						},
-						"Action": [
-							"sts:AssumeRole"
-						]
-					}]
+						}
+					]
 				},
 				"Path": "/",
-				"ManagedPolicyArns": [{
-					"Ref": "appManagedPolicy"
-				}]
+				"ManagedPolicyArns": [
+					{
+						"Ref": "appManagedPolicy"
+					}
+				]
 			}
 		},
 		"appInstanceProfile": {
 			"Type": "AWS::IAM::InstanceProfile",
 			"Properties": {
 				"Path": "/",
-				"Roles": [{
-					"Ref": "appRole"
-				}]
+				"Roles": [
+					{
+						"Ref": "appRole"
+					}
+				]
 			}
 		},
 		"appManagedPolicy": {
@@ -405,35 +453,44 @@
 				"Description": "app",
 				"PolicyDocument": {
 					"Version": "2012-10-17",
-					"Statement": [{
-						"Effect": "Allow",
-						"Action": "*",
-						"Resource": "*"
-					}]
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Action": "*",
+							"Resource": "*"
+						}
+					]
 				}
 			}
 		},
 		"autoscalingGroup": {
 			"Type": "AWS::AutoScaling::AutoScalingGroup",
 			"Properties": {
-				"VPCZoneIdentifier": [{
-					"Ref": "privateSubnet0"
-				}, {
-					"Ref": "privateSubnet1"
-				}],
+				"VPCZoneIdentifier": [
+					{
+						"Ref": "privateSubnet0"
+					},
+					{
+						"Ref": "privateSubnet1"
+					}
+				],
 				"LaunchConfigurationName": {
 					"Ref": "launchConfiguration"
 				},
-				"MinSize": "2",
-				"MaxSize": "2",
-				"LoadBalancerNames": [{
-					"Ref": "elasticLoadBalancer"
-				}],
-				"Tags": [{
-					"Key": "Name",
-					"Value": "appHost",
-					"PropagateAtLaunch": "true"
-				}]
+				"MinSize": "0",
+				"MaxSize": "0",
+				"LoadBalancerNames": [
+					{
+						"Ref": "elasticLoadBalancer"
+					}
+				],
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "appHost",
+						"PropagateAtLaunch": "true"
+					}
+				]
 			}
 		},
 		"launchConfiguration": {
@@ -444,7 +501,8 @@
 				},
 				"ImageId": {
 					"Fn::FindInMap": [
-						"RegionMap", {
+						"RegionMap",
+						{
 							"Ref": "AWS::Region"
 						},
 						"app"
@@ -452,10 +510,36 @@
 				},
 				"InstanceType": "t2.micro",
 				"KeyName": "app",
-				"SecurityGroups": [{
-					"Fn::GetAtt": ["VPC", "DefaultSecurityGroup"]
-				}],
+				"SecurityGroups": [
+					{
+						"Fn::GetAtt": [
+							"VPC",
+							"DefaultSecurityGroup"
+						]
+					}
+				],
 				"UserData": "IyEvYmluL2Jhc2gNCiMgdXBkYXRlIHBhY2thZ2UgbGlzdHMgYW5kIGdldCBkZXBlbmRlbmNpZXMNCmFwdC1nZXQgdXBkYXRlDQphcHQtZ2V0IGluc3RhbGwgLXkgbmdpbnggdXdzZ2kgdXdzZ2ktcGx1Z2luLXB5dGhvbiBweXRob24tcGlwIGdpdA0KcGlwIGluc3RhbGwgdmlydHVhbGVudg0KDQojIGdyYWIgb3VyIGNvZGUNCmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vZXplZWV0bS9JbmZyYXgtYXMtQ29kZS0xMDAwLXdlYnNlcnZlcnMtaW4tNDAtbWludXRlcy5naXQNCg0KIyBzZXQgdXAgZmlsZXN5c3RlbSBhbmQgdmlydHVhbGVudg0KbWtkaXIgLXAgL3Zhci93d3cvbXlhcHANCnZpcnR1YWxlbnYgL3Zhci93d3cvbXlhcHAvZW52DQpzb3VyY2UgL3Zhci93d3cvbXlhcHAvZW52L2Jpbi9hY3RpdmF0ZQ0KcGlwIGluc3RhbGwgYm90dGxlIGJvdG8zIHJlcXVlc3RzDQpkZWFjdGl2YXRlDQpjaG93biAtUiB3d3ctZGF0YTp3d3ctZGF0YSAvdmFyL3d3dy9teWFwcA0KDQojIGNvcHkgZmlsZXMgZnJvbSBsb2NhbCBnaXQgcmVwbyBvdXQgdG8gd2hlcmUgdGhleSBiZWxvbmcgb24gdGhlIGZpbGVzeXN0ZW0NCmNwIC1mIC9JbmZyYXgtYXMtQ29kZS0xMDAwLXdlYnNlcnZlcnMtaW4tNDAtbWludXRlcy9lbnZpcm9ubWVudC9kZWZhdWx0IC9ldGMvbmdpbngvc2l0ZXMtZW5hYmxlZC9kZWZhdWx0DQpjcCAtZiAvSW5mcmF4LWFzLUNvZGUtMTAwMC13ZWJzZXJ2ZXJzLWluLTQwLW1pbnV0ZXMvZW52aXJvbm1lbnQvdXdzZ2kuaW5pIC9ldGMvdXdzZ2kvYXBwcy1lbmFibGVkL3V3c2dpLmluaQ0KY3AgLWYgL0luZnJheC1hcy1Db2RlLTEwMDAtd2Vic2VydmVycy1pbi00MC1taW51dGVzL2luZGV4LnB5IC92YXIvd3d3L215YXBwL2luZGV4LnB5DQpjcCAtZiAvSW5mcmF4LWFzLUNvZGUtMTAwMC13ZWJzZXJ2ZXJzLWluLTQwLW1pbnV0ZXMvaW5kZXguaHRtbCAvdmFyL3d3dy9teWFwcC9pbmRleC5odG1sDQoNCiMgcmVzdGFydCBzZXJ2aWNlcyB0byBsb2FkIG5ldyBjb25maWdzIGFuZCBlbmdhZ2UgdXdzZ2kgdG8gb3VyIGFwcA0Kc2VydmljZSBuZ2lueCByZXN0YXJ0DQpzZXJ2aWNlIHV3c2dpIHJlc3RhcnQ="
+			}
+		},
+		"dnsRecordSet": {
+			"Type": "AWS::Route53::RecordSet",
+			"Properties": {
+				"HostedZoneName": "trycatchfinally.fail.",
+				"Name": "test728.trycatchfinally.fail.",
+				"Type": "CNAME",
+				"TTL": "5",
+				"SetIdentifier": {
+					"Ref": "AWS::Region"
+				},
+				"Weight": 1,
+				"ResourceRecords": [
+					{
+						"Fn::GetAtt": [
+							"elasticLoadBalancer",
+							"DNSName"
+						]
+					}
+				]
 			}
 		}
 	}
