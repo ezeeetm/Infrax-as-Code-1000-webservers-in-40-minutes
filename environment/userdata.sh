@@ -1,6 +1,8 @@
 #!/bin/bash
 # update package lists and get dependencies
 apt-get update
+apt-get install -y nginx
+service nginx stop # otherwise it will go into service behind ELB with nginx splash screen
 apt-get install -y nginx uwsgi uwsgi-plugin-python python-pip git
 pip install virtualenv
 
@@ -22,5 +24,5 @@ cp -f /Infrax-as-Code-1000-webservers-in-40-minutes/index.py /var/www/myapp/inde
 cp -f /Infrax-as-Code-1000-webservers-in-40-minutes/index.html /var/www/myapp/index.html
 
 # restart services to load new configs and engage uwsgi to our app
-service nginx restart
+service nginx start
 service uwsgi restart
