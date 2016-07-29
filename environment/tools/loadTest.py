@@ -13,7 +13,7 @@ def worker(url):
 
 while True:
     sleep(0.01) #100ms buffer to keep from getting throttled
-    url = 'dns.hostname.here.com'
+    url = 'http://dns.hostname.here.com' #be sure to include http://
     print url
     threads = []
     for i in range(1): # this is the # of threads
