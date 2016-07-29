@@ -6,12 +6,12 @@ import urllib2
 resolver = dns.resolver.Resolver()
 resolver.nameservers = ['205.251.199.104']
 
-answer = resolver.query('jenkins.trycatchfinally.fail')
+answer = resolver.query('test7281.trycatchfinally.fail', 'CNAME')
 for rdata in answer:
     url = "http://%s" % rdata
     print url
-    resp = urllib2.urlopen(url).read()
-    print resp
+    #resp = urllib2.urlopen(url).read()
+    #print resp
 
 
 
