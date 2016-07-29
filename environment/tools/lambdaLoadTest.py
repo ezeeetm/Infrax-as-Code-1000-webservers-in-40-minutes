@@ -6,7 +6,10 @@ from time import sleep
 
 def worker(url):
     """thread worker function"""
-    resp = urllib2.urlopen(url).read()
+    try:
+        resp = urllib2.urlopen(url).read()
+    except:
+        pass
     return
 
 # 205.251.199.104 is ns-1896.awsdns-45.co.uk
@@ -20,7 +23,7 @@ while True:
         url = ("http://%s" % rdata)[:-1]
         print url
         threads = []
-        for i in range(1): # this is the # of threads
+        for i in range(5): # this is the # of threads
             t = threading.Thread(target=worker, args=(url,))
             threads.append(t)
             t.start()
