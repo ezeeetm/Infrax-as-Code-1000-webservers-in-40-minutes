@@ -23,7 +23,7 @@ while True:
         url = ("http://%s" % rdata)[:-1]
         print url
         threads = []
-        for i in range(5): # this is the # of threads
+        for i in range(1): # this is the # of threads
             t = threading.Thread(target=worker, args=(url,))
             threads.append(t)
             t.start()
