@@ -15,7 +15,7 @@ resolver.nameservers = ['205.251.199.104']
 
 while True:
     sleep(0.01) #100ms buffer to keep from getting throttled
-    answer = resolver.query('test7281.trycatchfinally.fail', 'CNAME')
+    answer = resolver.query('somedomain.com', 'CNAME')
     for rdata in answer:
         url = ("http://%s" % rdata)[:-1]
         print url
@@ -25,4 +25,4 @@ while True:
             threads.append(t)
             t.start()
 
-# on lambda AMI, do sudo pip install dnspython
+# pip install dnspython
