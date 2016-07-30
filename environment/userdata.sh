@@ -23,6 +23,6 @@ cp -f /Infrax-as-Code-1000-webservers-in-40-minutes/environment/uwsgi.ini /etc/u
 cp -f /Infrax-as-Code-1000-webservers-in-40-minutes/index.py /var/www/myapp/index.py
 cp -f /Infrax-as-Code-1000-webservers-in-40-minutes/index.html /var/www/myapp/index.html
 
-# restart services to load new configs and engage uwsgi to our app...
+# restart services to load new configs and engage uwsgi to our app
 service nginx start
 service uwsgi restart
