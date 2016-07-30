@@ -477,8 +477,8 @@
                 "LaunchConfigurationName": {
                     "Ref": "launchConfiguration"
                 },
-                "MinSize": "100",
-                "MaxSize": "100",
+                "MinSize": "0",
+                "MaxSize": "0",
                 "LoadBalancerNames": [
                     {
                         "Ref": "elasticLoadBalancer"
@@ -525,7 +525,7 @@
             "Type": "AWS::Route53::RecordSet",
             "Properties": {
                 "HostedZoneName": "trycatchfinally.fail.",
-                "Name": "test729.trycatchfinally.fail.",
+                "Name": "pyohio2016.trycatchfinally.fail.",
                 "Type": "CNAME",
                 "TTL": "5",
                 "SetIdentifier": {
