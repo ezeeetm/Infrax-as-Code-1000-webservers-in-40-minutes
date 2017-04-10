@@ -477,8 +477,8 @@
                 "LaunchConfigurationName": {
                     "Ref": "launchConfiguration"
                 },
-                "MinSize": "0",
-                "MaxSize": "0",
+                "MinSize": "1",
+                "MaxSize": "1",
                 "LoadBalancerNames": [
                     {
                         "Ref": "elasticLoadBalancer"
@@ -524,8 +524,8 @@
         "dnsRecordSet": {
             "Type": "AWS::Route53::RecordSet",
             "Properties": {
-                "HostedZoneName": "trycatchfinally.fail.",
-                "Name": "pyohio2016.trycatchfinally.fail.",
+                "HostedZoneName": "neudemo.net.",
+                "Name": "app.neudemo.net.",
                 "Type": "CNAME",
                 "TTL": "5",
                 "SetIdentifier": {
