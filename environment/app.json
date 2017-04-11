@@ -477,8 +477,8 @@
                 "LaunchConfigurationName": {
                     "Ref": "launchConfiguration"
                 },
-                "MinSize": "4",
-                "MaxSize": "4",
+                "MinSize": "95",
+                "MaxSize": "95",
                 "LoadBalancerNames": [
                     {
                         "Ref": "elasticLoadBalancer"
