@@ -56,17 +56,17 @@
 	},
 	"us-east-2": {
 		"friendlyName": "Ohio",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"eu-west-2": {
 		"friendlyName": "London",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"ca-central-1": {
 		"friendlyName": "Canada (Central)",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	}
 }

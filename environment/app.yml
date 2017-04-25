@@ -46,6 +46,18 @@ Mappings:
       app: ami-ac5238c3
       nat: ami-d3b6dcbc
       natType: t2.nano
+    us-east-2:
+      app: ami-0becb76e
+      nat: ami-07fdd962
+      natType: t2.nano
+    eu-west-2:
+      app: ami-c7c7cda3
+      nat: ami-141d0970
+      natType: t2.nano
+    ca-central-1:
+      app: ami-2e51e34a
+      nat: ami-2103be45
+      natType: t2.nano
 Resources:
   VPC:
     Type: AWS::EC2::VPC
