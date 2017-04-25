@@ -53,5 +53,20 @@
 		"friendlyName": "Mumbai",
 		"enabled": false,
 		"stack": "app"
+	},
+	"us-east-2": {
+		"friendlyName": "Ohio",
+		"enabled": false,
+		"stack": "app"
+	},
+	"eu-west-2": {
+		"friendlyName": "London",
+		"enabled": false,
+		"stack": "app"
+	},
+	"ca-central-1": {
+		"friendlyName": "Canada (Central)",
+		"enabled": false,
+		"stack": "app"
 	}
 }
