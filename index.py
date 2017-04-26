@@ -96,8 +96,8 @@ beaconMap = {
 	'sa-east-1': {'top': '71.25%', 'left': '33.25%', 'color': '107E7D'},
 	'ap-south-1': {'top': '47.5%', 'left': '68%', 'color': '044B7F'},
 	'us-east-2': {'top': '29%', 'left': '26.5%', 'color': '107E7D'},
-	'eu-west-2': {'top': '47.5%', 'left': '68%', 'color': '95190C'},
-	'ca-central-1': {'top': '47.5%', 'left': '68%', 'color': '044B7F'}
+	'eu-west-2': {'top': '24%', 'left': '47.5%', 'color': '95190C'},
+	'ca-central-1': {'top': '23.5%', 'left': '23%', 'color': '044B7F'}
 }
 
 
