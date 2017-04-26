@@ -95,10 +95,11 @@ beaconMap = {
 	'ap-southeast-2': {'top': '77%', 'left': '86%', 'color': '044B7F'},
 	'sa-east-1': {'top': '71.25%', 'left': '33.25%', 'color': '107E7D'},
 	'ap-south-1': {'top': '47.5%', 'left': '68%', 'color': '044B7F'},
-	'us-east-2': {'top': '47.5%', 'left': '68%', 'color': '107E7D'},
+	'us-east-2': {'top': '29%', 'left': '26.5%', 'color': '107E7D'},
 	'eu-west-2': {'top': '47.5%', 'left': '68%', 'color': '95190C'},
 	'ca-central-1': {'top': '47.5%', 'left': '68%', 'color': '044B7F'}
 }
+
 
 # reads in ./app.html to return
 with open('/var/www/myapp/index.html', 'r') as htmlFile:
