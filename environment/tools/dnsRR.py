@@ -12,9 +12,9 @@ def worker(url):
         pass
     return
 
-# 205.251.199.104 is ns-1896.awsdns-45.co.uk
+# 205.251.199.68 is ns-1860.awsdns-40.co.uk for app.neudemo.net domain
 resolver = dns.resolver.Resolver()
-resolver.nameservers = ['205.251.199.104']
+resolver.nameservers = ['205.251.199.68']
 
 while True:
     sleep(0.01) #100ms buffer to keep from getting throttled
