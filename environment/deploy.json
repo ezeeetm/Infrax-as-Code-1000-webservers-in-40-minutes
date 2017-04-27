@@ -41,7 +41,7 @@
 	},
 	"ap-southeast-2": {
 		"friendlyName": "Sydney",
-		"enabled": true,
+		"enabled": false,
 		"stack": "app"
 	},
 	"sa-east-1": {
