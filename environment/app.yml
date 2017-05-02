@@ -1,63 +1,78 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: app
+
 Mappings:
   RegionMap:
     us-east-1:
       app: ami-fce3c696
       nat: ami-8d8976e0
       natType: t2.nano
+
     us-west-1:
       app: ami-06116566
       nat: ami-407f0520
       natType: t2.nano
+
     us-west-2:
       app: ami-9abea4fb
       nat: ami-cc01f9ac
       natType: t2.nano
+
     eu-west-1:
       app: ami-f95ef58a
       nat: ami-89ee7cfa
       natType: t2.nano
+
     eu-central-1:
       app: ami-87564feb
       nat: ami-9bf618f4
       natType: t2.nano
+
     ap-northeast-1:
       app: ami-a21529cc
       nat: ami-2555ba44
       natType: t2.nano
+
     ap-northeast-2:
       app: ami-09dc1267
       nat: ami-68e92206
       natType: t2.nano
+
     ap-southeast-1:
       app: ami-25c00c46
       nat: ami-b6c111d5
       natType: t2.nano
+
     ap-southeast-2:
       app: ami-6c14310f
       nat: ami-1cd6f87f
       natType: t2.micro
+
     sa-east-1:
       app: ami-0fb83963
       nat: ami-e257dc8e
       natType: t2.nano
+
     ap-south-1:
       app: ami-ac5238c3
       nat: ami-d3b6dcbc
       natType: t2.nano
+
     us-east-2:
       app: ami-0becb76e
       nat: ami-07fdd962
       natType: t2.nano
+
     eu-west-2:
       app: ami-c7c7cda3
       nat: ami-141d0970
       natType: t2.nano
+
     ca-central-1:
       app: ami-2e51e34a
       nat: ami-2103be45
       natType: t2.nano
+
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -68,6 +83,7 @@ Resources:
       Tags:
       - Key: Name
         Value: app
+
   publicSubnet0:
     Type: AWS::EC2::Subnet
     Properties:
@@ -77,6 +93,7 @@ Resources:
       Tags:
       - Key: Name
         Value: publicSubnet0
+
   publicSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
@@ -86,6 +103,7 @@ Resources:
       Tags:
       - Key: Name
         Value: publicSubnet1
+
   privateSubnet0:
     Type: AWS::EC2::Subnet
     Properties:
@@ -95,6 +113,7 @@ Resources:
       Tags:
       - Key: Name
         Value: privateSubnet0
+
   privateSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
@@ -104,18 +123,21 @@ Resources:
       Tags:
       - Key: Name
         Value: privateSubnet1
+
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:
       Tags:
       - Key: Name
         Value: app
+
   VPCGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
     DependsOn: InternetGateway
     Properties:
       VpcId: !Ref 'VPC'
       InternetGatewayId: !Ref 'InternetGateway'
+
   natInstance:
     Type: AWS::EC2::Instance
     Properties:
@@ -131,6 +153,7 @@ Resources:
         DeviceIndex: '0'
         DeleteOnTermination: 'true'
         SubnetId: !Ref 'publicSubnet0'
+
   publicRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -138,6 +161,7 @@ Resources:
       Tags:
       - Key: Name
         Value: appPublic
+
   publicRoute:
     Type: AWS::EC2::Route
     DependsOn: VPCGatewayAttachment
@@ -145,16 +169,19 @@ Resources:
       RouteTableId: !Ref 'publicRouteTable'
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId: !Ref 'InternetGateway'
+
   publicSubnet0RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId: !Ref 'publicSubnet0'
       RouteTableId: !Ref 'publicRouteTable'
+
   publicSubnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId: !Ref 'publicSubnet1'
       RouteTableId: !Ref 'publicRouteTable'
+
   privateRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -162,22 +189,26 @@ Resources:
       Tags:
       - Key: Name
         Value: appPrivate
+
   privateRoute:
     Type: AWS::EC2::Route
     Properties:
       RouteTableId: !Ref 'privateRouteTable'
       DestinationCidrBlock: 0.0.0.0/0
       InstanceId: !Ref 'natInstance'
+
   privateSubnet0RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId: !Ref 'privateSubnet0'
       RouteTableId: !Ref 'privateRouteTable'
+
   privateSubnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId: !Ref 'privateSubnet1'
       RouteTableId: !Ref 'privateRouteTable'
+
   elasticLoadBalancer:
     Type: AWS::ElasticLoadBalancing::LoadBalancer
     Properties:
@@ -202,6 +233,7 @@ Resources:
         UnhealthyThreshold: '2'
         Interval: '5'
         Timeout: '4'
+
   elbSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -219,6 +251,7 @@ Resources:
         FromPort: '22'
         ToPort: '22'
         CidrIp: 0.0.0.0/0
+
   appRole:
     Type: AWS::IAM::Role
     Properties:
@@ -234,12 +267,14 @@ Resources:
       Path: /
       ManagedPolicyArns:
       - !Ref 'appManagedPolicy'
+
   appInstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
       Path: /
       Roles:
       - !Ref 'appRole'
+
   appManagedPolicy:
     Type: AWS::IAM::ManagedPolicy
     Properties:
@@ -250,6 +285,7 @@ Resources:
         - Effect: Allow
           Action: '*'
           Resource: '*'
+
   autoscalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
@@ -265,6 +301,7 @@ Resources:
       - Key: Name
         Value: appHost
         PropagateAtLaunch: 'true'
+
   launchConfiguration:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
@@ -304,6 +341,7 @@ Resources:
           # restart services to load new configs and engage uwsgi to our app
           service nginx start
           service uwsgi restart
+
   dnsRecordSet:
     Type: AWS::Route53::RecordSet
     Properties:
