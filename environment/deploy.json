@@ -1,6 +1,6 @@
 {
 	"us-east-1": {
-		"friendlyName": "N. Virginia",
+		"friendlyName": "N. Virginia", 
 		"enabled": true,
 		"stack": "app"
 	},
@@ -11,62 +11,62 @@
 	},
 	"us-west-2": {
 		"friendlyName": "Oregon",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"eu-west-1": {
 		"friendlyName": "Ireland",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"eu-central-1": {
 		"friendlyName": "Frankfurt",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"ap-northeast-1": {
 		"friendlyName": "Tokyo",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"ap-northeast-2": {
 		"friendlyName": "Seoul",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"ap-southeast-1": {
 		"friendlyName": "Singapore",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"ap-southeast-2": {
 		"friendlyName": "Sydney",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"sa-east-1": {
 		"friendlyName": "São Paulo",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"ap-south-1": {
 		"friendlyName": "Mumbai",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"us-east-2": {
 		"friendlyName": "Ohio",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"eu-west-2": {
 		"friendlyName": "London",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	},
 	"ca-central-1": {
 		"friendlyName": "Canada (Central)",
-		"enabled": false,
+		"enabled": true,
 		"stack": "app"
 	}
 }
