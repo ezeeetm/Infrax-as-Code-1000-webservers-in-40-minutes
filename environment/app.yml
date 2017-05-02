@@ -352,4 +352,5 @@ Resources:
       SetIdentifier: !Ref 'AWS::Region'
       Weight: 1
       ResourceRecords:
-      - !GetAtt 'elasticLoadBalancer.DNSName'
+      - !GetAtt 'elasticLoadBalancer.DNSName' 
+
