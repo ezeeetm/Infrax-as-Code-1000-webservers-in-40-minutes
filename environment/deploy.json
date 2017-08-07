@@ -6,7 +6,7 @@
 	},
 	"us-west-1": {
 		"friendlyName": "N. California",
-		"enabled": false, 
+		"enabled": true, 
 		"stack": "app"
 	},
 	"us-west-2": {
