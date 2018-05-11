@@ -66,7 +66,7 @@
 	},
 	"eu-west-3": {
 		"friendlyName": "Paris",
-		"enabled": true,
+		"enabled": false,
 		"stack": "app"
 	},
 	"ca-central-1": {
