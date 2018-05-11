@@ -64,6 +64,11 @@
 		"enabled": true,
 		"stack": "app"
 	},
+	"eu-west-3": {
+		"friendlyName": "Paris",
+		"enabled": true,
+		"stack": "app"
+	},
 	"ca-central-1": {
 		"friendlyName": "Canada (Central)",
 		"enabled": true,
