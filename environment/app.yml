@@ -68,6 +68,11 @@ Mappings:
       nat: ami-141d0970
       natType: t2.nano
 
+    eu-west-3:
+      app: ami-01fd4b7c
+      nat: ami-78c17405
+      natType: t2.nano
+
     ca-central-1:
       app: ami-2e51e34a
       nat: ami-2103be45
