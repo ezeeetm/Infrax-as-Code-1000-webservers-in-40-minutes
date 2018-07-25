@@ -350,8 +350,8 @@ Resources:
   dnsRecordSet:
     Type: AWS::Route53::RecordSet
     Properties:
-      HostedZoneName: neudemo.net.
-      Name: app.neudemo.net.
+      HostedZoneName: onicademo.com.
+      Name: app.onicademo.com.
       Type: CNAME
       TTL: '5'
       SetIdentifier: !Ref 'AWS::Region'
