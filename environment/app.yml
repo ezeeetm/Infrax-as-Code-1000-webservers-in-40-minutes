@@ -215,6 +215,7 @@ Resources:
       RouteTableId: !Ref 'privateRouteTable'
 
   elasticLoadBalancer:
+    DependsOn: VPCGatewayAttachment
     Type: AWS::ElasticLoadBalancing::LoadBalancer
     Properties:
       Subnets:
