@@ -346,6 +346,8 @@ Resources:
           # restart services to load new configs and engage uwsgi to our app
           service nginx start
           service uwsgi restart
+          pip install --upgrade requests
+          service uwsgi restart
 
   dnsRecordSet:
     Type: AWS::Route53::RecordSet
